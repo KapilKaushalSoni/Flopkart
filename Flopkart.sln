@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductServices", "Flopkart\ProductServices.csproj", "{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServices", "AuthenticationServices\AuthenticationServices.csproj", "{8A89A6EC-526E-410D-A691-281268D89FD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderServices", "OrderServices\OrderServices.csproj", "{57BEF8A9-9EA7-477A-A3B4-3114ECCFD99E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartServices", "CartServices\CartServices.csproj", "{3E7085EA-1FAA-4AC2-9525-C9442282AB99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentServices", "PaymentServices\PaymentServices.csproj", "{65CF015F-1995-4F9F-AAB3-30A9FD0E6B73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationServices", "NotificationServices\NotificationServices.csproj", "{066AC6D6-101C-4F9A-8602-338DC2631FBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{CF32DADC-103A-40C5-B03A-C65F9597A42B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A89A6EC-526E-410D-A691-281268D89FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A89A6EC-526E-410D-A691-281268D89FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A89A6EC-526E-410D-A691-281268D89FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A89A6EC-526E-410D-A691-281268D89FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57BEF8A9-9EA7-477A-A3B4-3114ECCFD99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57BEF8A9-9EA7-477A-A3B4-3114ECCFD99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57BEF8A9-9EA7-477A-A3B4-3114ECCFD99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57BEF8A9-9EA7-477A-A3B4-3114ECCFD99E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E7085EA-1FAA-4AC2-9525-C9442282AB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7085EA-1FAA-4AC2-9525-C9442282AB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7085EA-1FAA-4AC2-9525-C9442282AB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7085EA-1FAA-4AC2-9525-C9442282AB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CF015F-1995-4F9F-AAB3-30A9FD0E6B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CF015F-1995-4F9F-AAB3-30A9FD0E6B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CF015F-1995-4F9F-AAB3-30A9FD0E6B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CF015F-1995-4F9F-AAB3-30A9FD0E6B73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{066AC6D6-101C-4F9A-8602-338DC2631FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066AC6D6-101C-4F9A-8602-338DC2631FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066AC6D6-101C-4F9A-8602-338DC2631FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066AC6D6-101C-4F9A-8602-338DC2631FBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF32DADC-103A-40C5-B03A-C65F9597A42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF32DADC-103A-40C5-B03A-C65F9597A42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF32DADC-103A-40C5-B03A-C65F9597A42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF32DADC-103A-40C5-B03A-C65F9597A42B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23C0552A-6EAA-4A69-8DB2-560BF17D84C6}
+	EndGlobalSection
+EndGlobal
