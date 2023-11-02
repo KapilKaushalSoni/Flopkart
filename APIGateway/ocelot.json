@@ -1,0 +1,55 @@
+{
+  "ReRoutes": [
+    {
+
+      "DownstreamPathTemplate": "/api/v1/users/create",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authentication-service-api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/service/users/create",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/v1/users/authenticate",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authentication-service-api",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/service/users/authenticate",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/v1/products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api-products-container",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/service/products",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/products/nameLike/{nameLike}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api-products-container",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/service/products/{nameLike}",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ] 
+}

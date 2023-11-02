@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductServices", "Flopkart\ProductServices.csproj", "{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductServices", "Flopkart\ProductServices.csproj", "{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServices", "AuthenticationServices\AuthenticationServices.csproj", "{8A89A6EC-526E-410D-A691-281268D89FD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationServices", "AuthenticationServices\AuthenticationServices.csproj", "{8A89A6EC-526E-410D-A691-281268D89FD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderServices", "OrderServices\OrderServices.csproj", "{57BEF8A9-9EA7-477A-A3B4-3114ECCFD99E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderServices", "OrderServices\OrderServices.csproj", "{57BEF8A9-9EA7-477A-A3B4-3114ECCFD99E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartServices", "CartServices\CartServices.csproj", "{3E7085EA-1FAA-4AC2-9525-C9442282AB99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CartServices", "CartServices\CartServices.csproj", "{3E7085EA-1FAA-4AC2-9525-C9442282AB99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentServices", "PaymentServices\PaymentServices.csproj", "{65CF015F-1995-4F9F-AAB3-30A9FD0E6B73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentServices", "PaymentServices\PaymentServices.csproj", "{65CF015F-1995-4F9F-AAB3-30A9FD0E6B73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationServices", "NotificationServices\NotificationServices.csproj", "{066AC6D6-101C-4F9A-8602-338DC2631FBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationServices", "NotificationServices\NotificationServices.csproj", "{066AC6D6-101C-4F9A-8602-338DC2631FBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{CF32DADC-103A-40C5-B03A-C65F9597A42B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGateway", "APIGateway\APIGateway.csproj", "{CF32DADC-103A-40C5-B03A-C65F9597A42B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
