@@ -22,6 +22,8 @@ services:
           - "5432:5432"
         volumes:
           - D:/Kapil_Personal/Microservices-Volumes/Flopkart/pg_data:/var/lib/postgresql/data
+        networks:
+          - flopkart-network
       
   
   # pgadmin:

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductServices", "Flopkart\ProductServices.csproj", "{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationServices", "AuthenticationServices\AuthenticationServices.csproj", "{8A89A6EC-526E-410D-A691-281268D89FD3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderServices", "OrderServices\OrderServices.csproj", "{57BEF8A9-9EA7-477A-A3B4-3114ECCFD99E}"
@@ -17,16 +15,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationServices", "Not
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGateway", "APIGateway\APIGateway.csproj", "{CF32DADC-103A-40C5-B03A-C65F9597A42B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductServices", "ProductServices\ProductServices.csproj", "{5917F235-7A9F-46CF-8E5E-A19194EEDDCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2CE2755-83A9-478C-A1CB-5C0F7DEC6537}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A89A6EC-526E-410D-A691-281268D89FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8A89A6EC-526E-410D-A691-281268D89FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A89A6EC-526E-410D-A691-281268D89FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{CF32DADC-103A-40C5-B03A-C65F9597A42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF32DADC-103A-40C5-B03A-C65F9597A42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF32DADC-103A-40C5-B03A-C65F9597A42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5917F235-7A9F-46CF-8E5E-A19194EEDDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5917F235-7A9F-46CF-8E5E-A19194EEDDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5917F235-7A9F-46CF-8E5E-A19194EEDDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5917F235-7A9F-46CF-8E5E-A19194EEDDCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
