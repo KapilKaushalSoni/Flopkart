@@ -11,67 +11,89 @@ services:
           - "1435:1433"
         volumes:
           - D:/Kapil_Personal/Microservices-Volumes/Flopkart/sqldata:/var/opt/mssql/data
-    postgres:
-        image: postgres:latest
-        container_name: authentication-service-container
-        environment:
-          POSTGRES_DB: FlopkartAuthentication
-          POSTGRES_USER: administrator
-          POSTGRES_PASSWORD: Nic*12345
-        ports:
-          - "5432:5432"
-        volumes:
-          - D:/Kapil_Personal/Microservices-Volumes/Flopkart/pg_data:/var/lib/postgresql/data
-        networks:
-          - flopkart-network
+    # postgres:
+        # image: postgres:latest
+        # container_name: authentication-service-container
+        # environment:
+          # POSTGRES_DB: FlopkartAuthentication
+          # POSTGRES_USER: administrator
+          # POSTGRES_PASSWORD: Nic*12345
+        # ports:
+          # - "5432:5432"
+        # volumes:
+          # - D:/Kapil_Personal/Microservices-Volumes/Flopkart/pg_data:/var/lib/postgresql/data
+        # networks:
+          # - flopkart-network
       
-  
-  # pgadmin:
-    # image: dpage/pgadmin4
-    # container_name: pgadmin-container
-    # environment:
-      # - PGADMIN_DEFAULT_EMAIL=kapil.soni0035@gmail.com
-      # - PGADMIN_DEFAULT_PASSWORD=Nic*12345
-    # ports:
-      # - "5050:80"
-      
-      
-  # mongo:
-    # image: mongo:latest
-    # container_name: notification-container
-    # ports:
-      # - "27017:27017"
-    # volumes:
-      # - D:/Kapil_Personal/Microservices-Volumes/Flopkart/mongo_data:/data/db
-    # environment:
-      # MONGO_INITDB_ROOT_USERNAME: administrator
-      # MONGO_INITDB_ROOT_PASSWORD: Nic*12345
 
-    authentication-api:
-        image: auth-image:latest
-        build:
-          context: .
-          dockerfile: /AuthenticationServices/Dockerfile
-        container_name: authentication-service-api
+    # pgadmin:
+        # image: dpage/pgadmin4
+        # container_name: pgadmin-container
+        # environment:
+          # - PGADMIN_DEFAULT_EMAIL=kapil.soni0035@gmail.com
+          # - PGADMIN_DEFAULT_PASSWORD=Nic*12345
+        # ports:
+            # - "5050:80"
+        # networks:
+          # - flopkart-network
+      
+      
+    mongoserver:
+        image: mongo:latest
+        container_name: mongoserver
         ports:
-          - "8084:80"
+          - "27017:27017"
+        volumes:
+          - D:/Kapil_Personal/Microservices-Volumes/Flopkart/mongo_data:/data/db
         environment:
-          ASPNETCORE_ENVIRONMENT: "Development"
+          MONGO_INITDB_ROOT_USERNAME: administrator
+          MONGO_INITDB_ROOT_PASSWORD: Nic*12345
         networks:
-           - flopkart-network
+            - flopkart-network
+   
+    # compass:
+        # image: mongo-express
+        # container_name: compass
+        # ports:
+          # - "8081:8081"
+        # environment:
+          # ME_CONFIG_MONGODB_SERVER: mongoserver
+          # ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+          # ME_CONFIG_MONGODB_ADMINUSERNAME: administrator
+          # ME_CONFIG_MONGODB_ADMINPASSWORD: Nic*12345 
+          # ME_CONFIG_BASICAUTH_USERNAME: admin
+          # ME_CONFIG_BASICAUTH_PASSWORD: admin123
+        # depends_on:
+          # - mongoserver
+        # networks:
+           # - flopkart-network
+          
+      
+    # authentication-api:
+        # image: auth-image:latest
+        # build:
+          # context: .
+          # dockerfile: /AuthenticationServices/Dockerfile
+        # container_name: authentication-service-api
+        # ports:
+          # - "8084:80"
+        # environment:
+          # ASPNETCORE_ENVIRONMENT: "Development"
+        # networks:
+           # - flopkart-network
            
-    api-gateway-service:
-        image: api-gateway-image:latest
-        build:
-          context: .
-          dockerfile: /APIGateway/Dockerfile
-        container_name: api-gateway-container
-        ports:
-          - "8080:80"
-        environment:
-          ASPNETCORE_ENVIRONMENT: "Development"
-        networks:
-           - flopkart-network
+    # api-gateway-service:
+        # image: api-gateway-image:latest
+        # build:
+          # context: .
+          # dockerfile: /APIGateway/Dockerfile
+        # container_name: api-gateway-container
+        # ports:
+          # - "8080:80"
+        # environment:
+          # ASPNETCORE_ENVIRONMENT: "Development"
+        # networks:
+           # - flopkart-network
            
     api-products-service:
         image: api-products-image:latest

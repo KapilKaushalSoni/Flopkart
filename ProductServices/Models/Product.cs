@@ -9,6 +9,8 @@ namespace ProductServices.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public decimal Price { get; set; }
+        public decimal? Discount { get; set; }
         public ProductType ProductType { get; set; }
         public CategoryType CategoryType { get; set; }
         public DateTime Added_On { get; set; }

@@ -31,6 +31,8 @@ namespace ProductServices.Repository
                 Added_On = p.Added_On,
                 CategoryType = p.CategoryType.Category,
                 Is_Active = p.Is_Active,
+                Discount = p.Discount,
+                Price = p.Price,
                 Name = p.Name,
                 ProductType = p.ProductType.Type,
                 Updated_By = p.Updated_By,
@@ -42,22 +44,33 @@ namespace ProductServices.Repository
 
         public async Task<IEnumerable<ProductViewModel>> GetByFilter(Expression<Func<Product, bool>> filter)
         {
-            var res=productsDbContext.Products.Where(filter);
-            var result=await res.Select(p => new ProductViewModel()
+            try
             {
-                Id = p.Id,
-                Added_By = p.Added_By,
-                Added_By_IP = p.Added_By_IP,
-                Added_On = p.Added_On,
-                CategoryType = p.CategoryType.Category,
-                Is_Active = p.Is_Active,
-                Name = p.Name,
-                ProductType = p.ProductType.Type,
-                Updated_By = p.Updated_By,
-                Updated_By_IP = p.Updated_By_IP,
-                Updated_On = p.Updated_On
-            }).ToListAsync();
-            return result;
+                var res = productsDbContext.Products.Where(filter);
+                var result = await res.Select(p => new ProductViewModel()
+                {
+                    Id = p.Id,
+                    Added_By = p.Added_By,
+                    Added_By_IP = p.Added_By_IP,
+                    Added_On = p.Added_On,
+                    Discount = p.Discount,
+                    Price = p.Price,
+                    CategoryType = p.CategoryType.Category,
+                    Is_Active = p.Is_Active,
+                    Name = p.Name,
+                    ProductType = p.ProductType.Type,
+                    Updated_By = p.Updated_By,
+                    Updated_By_IP = p.Updated_By_IP,
+                    Updated_On = p.Updated_On
+                }).ToListAsync();
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+          
         }
 
         public Task<APIResponse> GetById(int Id)

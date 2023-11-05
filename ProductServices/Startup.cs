@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ProductServices.Data;
 using ProductServices.Repository;
+using ProductServices.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,8 @@ namespace Flopkart
           });
 
             services.AddScoped<IProductsRepository, ProductsRepository>();
+
+            services.AddGrpc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,6 +90,7 @@ namespace Flopkart
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGrpcService<ProductGrpcService>();
                 endpoints.MapControllers();
             });
         }
