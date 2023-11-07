@@ -3,11 +3,13 @@ using CartServices.ViewModels;
 using Grpc.Net.Client;
 using GrpcService1;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CartServices.Repository
@@ -16,13 +18,17 @@ namespace CartServices.Repository
     {
         private readonly IMongoCollection<Cart> _carts;
         private readonly IMongoCollection<Product> _products;
+        private readonly IConfiguration configuration;
+        private readonly ILogger<CartRepository> logger;
 
-        public CartRepository(IConfiguration configuration)
+        public CartRepository(IConfiguration configuration,ILogger<CartRepository> logger)
         {
             var client = new MongoClient(configuration.GetConnectionString("MongoDB"));
             var database = client.GetDatabase(configuration.GetSection("DatabaseSettings:DatabaseName").Value);
             _carts = database.GetCollection<Cart>("Cart");
             _products = database.GetCollection<Product>("Product");
+            this.configuration = configuration;
+            this.logger = logger;
         }
 
         public async Task<List<Cart>> Get() =>
@@ -110,8 +116,10 @@ namespace CartServices.Repository
                
 
                 var products = await _products.Find(p => p.UserId == userid && p.CartId == cartDetails.Id).ToListAsync();
+                var httpHandler = new HttpClientHandler();
+                httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
 
-                using var channel = GrpcChannel.ForAddress("https://localhost:5001");
+                using var channel = GrpcChannel.ForAddress(configuration.GetSection("GrpcProductServerUrl").Value, new GrpcChannelOptions { HttpHandler = httpHandler });
 
                 var productClient = new Products.ProductsClient(channel);
                 ProductResponse clientResponse;
@@ -121,7 +129,7 @@ namespace CartServices.Repository
                 }
                 catch (Exception ex)
                 {
-
+                    logger.LogError(ex.Message);
                     throw;
                 }
               
