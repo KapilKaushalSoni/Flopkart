@@ -1,18 +1,18 @@
 version: '3.4'
 
 services:
-    productsDbServer:
-        image: mcr.microsoft.com/mssql/server:2019-latest
-        container_name: productsDbServer
-        environment:
-          SA_PASSWORD: Nic*12345!
-          ACCEPT_EULA: Y
-        ports:
-          - "1435:1433"
-        volumes:
-          - D:/Kapil_Personal/Microservices-Volumes/Flopkart/sqldata:/var/opt/mssql/data
-        networks:
-           - flopkart-network
+    # productsDbServer:
+        # image: mcr.microsoft.com/mssql/server:2019-latest
+        # container_name: productsDbServer
+        # environment:
+          # SA_PASSWORD: Nic*12345!
+          # ACCEPT_EULA: Y
+        # ports:
+          # - "1435:1433"
+        # volumes:
+          # - D:/Kapil_Personal/Microservices-Volumes/Flopkart/sqldata:/var/opt/mssql/data
+        # networks:
+           # - flopkart-network
     # postgres:
         # image: postgres:latest
         # container_name: authentication-service-container
@@ -40,18 +40,18 @@ services:
           # - flopkart-network
       
       
-    mongoserver:
-        image: mongo:latest
-        container_name: mongoserver
-        ports:
-          - "27017:27017"
-        volumes:
-          - D:/Kapil_Personal/Microservices-Volumes/Flopkart/mongo_data:/data/db
-        environment:
-          MONGO_INITDB_ROOT_USERNAME: administrator
-          MONGO_INITDB_ROOT_PASSWORD: Nic*12345
-        networks:
-            - flopkart-network
+    # mongoserver:
+        # image: mongo:latest
+        # container_name: mongoserver
+        # ports:
+          # - "27017:27017"
+        # volumes:
+          # - D:/Kapil_Personal/Microservices-Volumes/Flopkart/mongo_data:/data/db
+        # environment:
+          # MONGO_INITDB_ROOT_USERNAME: administrator
+          # MONGO_INITDB_ROOT_PASSWORD: Nic*12345
+        # networks:
+            # - flopkart-network
    
     # compass:
         # image: mongo-express
@@ -97,45 +97,55 @@ services:
         # networks:
            # - flopkart-network
            
-    api-products-service:
-        image: api-products-image:latest
-        build:
-          context: .
-          dockerfile: /ProductServices/Dockerfile
-        container_name: api-products-container
-        ports:
-          - "8082:80"
-          - "8083:443"
-        volumes:
-          - D:/Kapil_Personal/Microservices-Volumes/Flopkart/Certificates:/https-certs
-        environment:
-               
-               ASPNETCORE_URLS: https://+:443;http://+:80
-               ASPNETCORE_HTTPS_PORT : 8081
-               ASPNETCORE_Kestrel__Certificates__Default__Password : "Nic*12345"
-               ASPNETCORE_Kestrel__Certificates__Default__Path : /https-certs/products_cert.pfx
+    # api-products-service:
+        # image: api-products-image:latest
+        # build:
+          # context: .
+          # dockerfile: /ProductServices/Dockerfile
+        # container_name: api-products-container
+        # ports:
+          # - "8082:80"
+          # - "8083:443"
+        # volumes:
+          # - D:/Kapil_Personal/Microservices-Volumes/Flopkart/Certificates:/https-certs
         # environment:
-            # - ASPNETCORE_URLS: https://+:443;http://+:80
-            # - ASPNETCORE_Kestrel__Certificates__Default__Password: Nic*12345
-            # - ASPNETCORE_Kestrel__Certificates__Default__Path: /https-certs/products_cert.pfx
-       
-          
-        networks:
-           - flopkart-network
+               
+               # ASPNETCORE_URLS: https://+:443;http://+:80
+               # ASPNETCORE_HTTPS_PORT : 8081
+               # ASPNETCORE_Kestrel__Certificates__Default__Password : "Nic*12345"
+               # ASPNETCORE_Kestrel__Certificates__Default__Path : /https-certs/products_cert.pfx
+         
+        # networks:
+           # - flopkart-network
            
-    api-cart-service:
-        image: api-cart-image:latest
-        build:
-          context: .
-          dockerfile: /CartServices/Dockerfile
-        container_name: api-cart-container
-        ports:
-          - "8086:80"
+    # api-cart-service:
+        # image: api-cart-image:latest
+        # build:
+          # context: .
+          # dockerfile: /CartServices/Dockerfile
+        # container_name: api-cart-container
+        # ports:
+          # - "8086:80"
+        # environment:
+          # ASPNETCORE_ENVIRONMENT: "Production"
+        # networks:
+           # - flopkart-network
+           
+    mysql-order-server:
+        image: mysql:latest
+        container_name: mysql-server-container
         environment:
-          ASPNETCORE_ENVIRONMENT: "Production"
+          MYSQL_ROOT_PASSWORD: administrator#123
+          MYSQL_DATABASE: OrdersDb
+          MYSQL_USER: admin
+          MYSQL_PASSWORD: Nic*12345
+        ports:
+          - "3306:3306"
+        volumes:
+          -  D:/Kapil_Personal/Microservices-Volumes/Flopkart/mysqlvol:/var/lib/mysql
         networks:
            - flopkart-network
-       
+    
 networks:
   flopkart-network:
     driver: bridge
